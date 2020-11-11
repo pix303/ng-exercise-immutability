@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Test</h1>
+    <button mat-flat-button color="primary" (click)="onShortName()" title="only string complete name">short name</button>
+    <button mat-flat-button color="primary" (click)="onFilterByAge()" title="only person not adult">only children</button>
+    <button mat-flat-button color="primary" (click)="onUpadateSurname()" title="change person surname">update surname</button>
+    <button mat-flat-button color="primary" (click)="onFilterAndMap()" title="complete name of over 30">over 30</button>
+    <button mat-flat-button color="primary" (click)="onSumAllAges()" title="sum all ages">total ages</button>
+    <div class="comparer-container">
+        <div class="comparer">
+            <pre>{{source}}</pre>
+        </div>
+        <div class="comparer">
+            <pre>{{result}}</pre>
+        </div>
+    </div>
+</div>
+
