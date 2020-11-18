@@ -7,18 +7,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { TestLauncherComponent } from './test-launcher/test-launcher.component';
+import { RequestComponent } from './request/request.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestLauncherComponent
+    TestLauncherComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    LayoutModule
+    LayoutModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

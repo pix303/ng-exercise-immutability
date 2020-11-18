@@ -1,0 +1,6 @@
+<div class="container">
+	<button mat-flat-button color="primary" (click)="fetchData()">Fetch data</button>
+	<ul *ngFor="let todo of todos | async ">
+		<li>{{todo.title | uppercase}}</li>
+	</ul>
+</div>

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-test-launcher',
   templateUrl: './test-launcher.component.html',
-  styleUrls: ['./test-launcher.component.css']
+  styleUrls: ['./test-launcher.component.css', '../app.component.css']
 })
 export class TestLauncherComponent implements OnInit {
 
@@ -19,7 +19,7 @@ export class TestLauncherComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    return;
     //default parameters in inline function implict return
     const add = (a = 10, b = 5) => a + b;
     console.log(add(15))
