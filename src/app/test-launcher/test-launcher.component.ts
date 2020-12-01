@@ -8,18 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestLauncherComponent implements OnInit {
 
-  result: string = "no test done";
+  //mock data
   family = [
     { name: "Paul", surname: "Carter", age: 47 },
     { name: "Lighty", surname: "Ramsey", age: 36 },
     { name: "Frances", surname: "Carter", age: 11 },
     { name: "Jack", surname: "Carter", age: 0 },
   ];
-  source = JSON.stringify([...this.family], null, 4);
+
+  //source data: note flat 
+  source: string = JSON.stringify(this.family, null, 4);
+  result: string = "no test done";
+
   constructor() { }
 
   ngOnInit() {
-    return;
+
     //default parameters in inline function implict return
     const add = (a = 10, b = 5) => a + b;
     console.log(add(15))
@@ -32,18 +36,20 @@ export class TestLauncherComponent implements OnInit {
     bar.hello("Franci");
 
     //immutability for array
-    let list = [10, 20]
-    //new mem allocation
-    list = [...list, 50]
+    let list = [{ age: 10 }, { age: 20 }]
+    //new memory allocation
+    list = [...list, { age: 50 }]
     let list1 = [...list]
     let list2 = list.map((item, index) => {
-      return item;
+      return { age: item.age };
     })
     console.log(list)
     console.log(list1)
     console.log(list2)
     console.log(list === list2)
     console.log(list1 === list2)
+    console.log(list[0] === list2[0])
+    console.log(list[0] === list1[0])
   }
 
   //redux function
@@ -99,8 +105,16 @@ class Foo {
 
   hello(name = "Paul") {
     console.log(name)
+    //arrow operator resolve this/that context problem
     setTimeout(() => {
-      console.log("internal name", name)
+      //this id object
+      console.log("internal name", name, this)
+      console.log(`${this.prefix} ${name}`);
+    }, 1000)
+
+    setTimeout(function () {
+      //this is Window
+      console.log("internal name with function", name, this)
       console.log(`${this.prefix} ${name}`);
     }, 1000)
   }
